@@ -167,7 +167,10 @@ const registerForum = (
         // const doc = await workspace.openTextDocument(uri);
         threadProvider.refresh(thread.threadUri);
         currentThread = thread;
+
+        await commands.executeCommand("markdown.showSource");
         await commands.executeCommand("markdown.showPreview", thread.threadUri);
+        await commands.executeCommand("workbench.action.closeEditorsToTheRight");
         // await window.showTextDocument(thread.threadUri, { preview: true });
       }
     )
