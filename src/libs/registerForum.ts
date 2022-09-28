@@ -62,7 +62,9 @@ const registerForum = (
         forumProvider.turnThreadPage(thread, thread.page + 1);
         threadProvider.refresh(thread.threadUri);
         currentThread = thread;
+        await commands.executeCommand("markdown.showSource");
         await commands.executeCommand("markdown.showPreview", thread.threadUri);
+        await commands.executeCommand("workbench.action.closeEditorsToTheRight");
         // await window.showTextDocument(thread.threadUri, { preview: true });
       }
     })
@@ -74,7 +76,9 @@ const registerForum = (
         forumProvider.turnThreadPage(thread, thread.page - 1);
         // threadProvider.refresh(thread.threadUri);
         currentThread = thread;
+        await commands.executeCommand("markdown.showSource");
         await commands.executeCommand("markdown.showPreview", thread.threadUri);
+        await commands.executeCommand("workbench.action.closeEditorsToTheRight");
         // await window.showTextDocument(thread.threadUri, { preview: true });
       }
     })
@@ -95,7 +99,9 @@ const registerForum = (
       forumProvider.turnThreadPage(thread, Number(page));
       // threadProvider.refresh(thread.threadUri);
       currentThread = thread;
+      await commands.executeCommand("markdown.showSource");
       await commands.executeCommand("markdown.showPreview", thread.threadUri);
+      await commands.executeCommand("workbench.action.closeEditorsToTheRight");
       // await window.showTextDocument(thread.threadUri, { preview: true });
     })
   );
